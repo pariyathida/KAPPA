@@ -1,25 +1,44 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import Seed.morningSeed;
 
 public class Player {
 	String name;
-	double money;
+	String money;
 	ArrayList<Item> inventory = new ArrayList<>();
-	public Player(){
+
+	public Player() {
 		System.out.println("Welcome. Please enter your name");
-		String name = main.scan.next();
-		System.out.println("Please enter starting money");
-		double money = main.scan.nextDouble();
-		this.name = name;
-		this.money = money;
+		name = main.scan.next();
+		do {
+			System.out.println("Please enter starting money");
+			money = main.scan.next();
+			if (isNumeric(money) == true) {
+				this.name = name;
+				this.money = money;
+			} else {
+				System.out.println("Please input number");
+			}
+		} while (isNumeric(money) == false);
 	}
-	public boolean useItem(int index){
+
+	public boolean useItem(int index) {
 		return true;
 	}
-	public boolean discardItem(int index){
+
+	public boolean discardItem(int index) {
+		return true;
+	}
+
+	public static boolean isNumeric(String str) {
+		try {
+			double d = Double.parseDouble(str);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
 		return true;
 	}
 }

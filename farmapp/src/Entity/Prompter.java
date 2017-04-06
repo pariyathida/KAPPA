@@ -2,11 +2,13 @@ package Entity;
 
 import java.util.ArrayList;
 
+
 public class Prompter {
 	public static int dayCount = 0;
 	public static Player player;
 	public static GardenBed gardenBed;
 	public static Shop shop;
+	
 
 	public Prompter() {
 		player = new Player();
@@ -16,7 +18,7 @@ public class Prompter {
 	}
 
 	public void Prompt() {
-		int input;
+		char input;
 		boolean greet = true;
 		while (true) {
 			if (dayCount == 0 && greet) {
@@ -31,8 +33,8 @@ public class Prompter {
 			System.out.println("(5)	View Inventory");
 			System.out.println("(6)	Visit Shop");
 			System.out.println("(7)	Sleep 1 Day");
-			input = main.scan.nextInt();
-			if (input == 1) {
+			input = main.scan.next().charAt(0);
+			if (input == '1') {
 				for (int i = 0; i < gardenBed.plantingSpot.length; i++) {
 					if (gardenBed.plantingSpot[i] == null) {
 						System.out.println("#" + (i + 1) + " : empty");
@@ -64,7 +66,7 @@ public class Prompter {
 						System.out.println();
 					}
 				}
-			} else if (input == 2) {
+			} else if (input == '2') {
 				ArrayList<Item> seed = new ArrayList<>();
 				for (Item i : player.inventory) {
 					if (i.getType() == "seed") {
@@ -80,19 +82,19 @@ public class Prompter {
 						count++;
 						System.out.println("#" + count + " : " + i.getName());
 					}
-					input = main.scan.nextInt();
+					input = main.scan.next().charAt(0);
 					seed.get(input - 1).use();
 				}
 
-			} else if (input == 3) {
+			} else if (input == '3') {
 
-			} else if (input == 4) {
+			} else if (input == '4') {
 
-			} else if (input == 5) {
+			} else if (input == '5') {
 
-			} else if (input == 6) {
+			} else if (input == '6') {
 
-			} else if (input == 7) {
+			} else if (input == '7') {
 				boolean checkGardenEmpty = true;
 				System.out.println("Goodnight");
 				for (Plant p : gardenBed.plantingSpot) {
