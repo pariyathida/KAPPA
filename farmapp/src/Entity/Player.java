@@ -8,7 +8,7 @@ import Seed.morningSeed;
 public class Player {
 	String name;
 	String money;
-	ArrayList<Item> inventory = new ArrayList<>();
+	ArrayList<Item> inventory = new ArrayList<Item>();
 
 	public Player() {
 		System.out.println("Welcome. Please enter your name");

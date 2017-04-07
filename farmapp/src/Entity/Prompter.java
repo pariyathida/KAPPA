@@ -67,7 +67,7 @@ public class Prompter {
 					}
 				}
 			} else if (input == '2') {
-				ArrayList<Item> seed = new ArrayList<>();
+				ArrayList<Item> seed = new ArrayList<Item>();
 				for (Item i : player.inventory) {
 					if (i.getType() == "seed") {
 						seed.add(i);

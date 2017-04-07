@@ -13,7 +13,7 @@ public class Plant {
 	protected int maturity;
 	protected int lifeSpan;
 	protected String state = "seedling";
-	protected ArrayList<Fruit> product = new ArrayList<>();
+	protected ArrayList<Fruit> product = new ArrayList<Fruit>();
 	protected boolean isFertilized;
 	public String getState() {
 		return state;

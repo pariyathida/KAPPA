@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Seed.morningSeed;
 
 public class Shop {
-	private ArrayList<Item> itemList = new ArrayList<>();
+	private ArrayList<Item> itemList = new ArrayList<Item>();
 	public Shop(){
 		reStock();
 	}
