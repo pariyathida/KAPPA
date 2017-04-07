@@ -41,4 +41,13 @@ public class Player {
 		}
 		return true;
 	}
+	
+	public static boolean isInteger(String str) {
+		try {
+			int d = Integer.parseInt(str);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;
+	}
 }
