@@ -83,7 +83,8 @@ public class Prompter {
 						System.out.println("#" + count + " : " + i.getName());
 					}
 					input = main.scan.next().charAt(0);
-					seed.get(input - 1).use();
+					int inputInteger = Character.getNumericValue(input);
+					seed.get(inputInteger - 1).use();
 				}
 
 			} else if (input == '3') {

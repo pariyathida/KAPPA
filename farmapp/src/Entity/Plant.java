@@ -32,7 +32,7 @@ public class Plant {
 		}
 		if (age > lifeSpan) {
 			state = "dead";
-			System.out.println("Oh shit! Your " + name + " has rot.");
+			System.out.println("Oh no! Your " + name + " has rot.");
 		}
 		if (waterGauge > 0) {
 			waterGauge--;
@@ -42,7 +42,7 @@ public class Plant {
 		}
 		if (healthGauge == 0) {
 			state = "dead";
-			System.out.println("Oh shit! Your " + name + " has rot.");
+			System.out.println("Oh no! Your " + name + " has rot.");
 		}
 	}
 }
