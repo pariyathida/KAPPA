@@ -3,6 +3,8 @@ package Entity;
 import java.util.ArrayList;
 
 import Seed.morningSeed;
+import main.Prompter;
+import model.Item;
 
 public class Shop {
 	private ArrayList<Item> itemList = new ArrayList<Item>();
@@ -38,8 +40,6 @@ public class Shop {
 	}
 	public void reStock(){
 		itemList.clear();
-		Item i = new morningSeed();
-		i.setAmount(10);
-		itemList.add(i);
+		
 	}
 }

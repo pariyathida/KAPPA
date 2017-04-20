@@ -1,13 +1,15 @@
 package Entity;
 
+import model.Item;
+
 public class Fruit {
 	protected String name;
-	String type = "fruit";
+	//String type = "fruit";
 	protected double price;
 	int amount;
-	public String getType() {
+	/*public String getType() {
 		return type;
-	}
+	}*/
 	public String getName() {
 		return name;
 	}

@@ -1,7 +1,7 @@
 package Entity;
 
 public class GardenBed {
-	Plant[] plantingSpot = new Plant[9];
+	public Plant[] plantingSpot = new Plant[9];
 
 	public void water(int index) {
 

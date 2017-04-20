@@ -1,10 +1,15 @@
 package Entity;
 
-public class Seed {
+import model.Item;
+
+public class Seed implements Item{
 	protected String name;
 	protected double price;
 	protected Plant plant;
 	int amount;
+	
+	public Seed(String name){}
+	
 	String type = "seed";
 
 	public String getType() {
@@ -24,6 +29,16 @@ public class Seed {
 	}
 
 	public void use() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void discard() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*public void use() {
 		String index;
 		do {
 			System.out.println("Please select planting spot");
@@ -49,5 +64,5 @@ public class Seed {
 			count++;
 		}
 		Prompter.player.inventory.remove(count);
-	}
+	}*/
 }

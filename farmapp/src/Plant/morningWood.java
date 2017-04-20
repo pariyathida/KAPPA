@@ -2,9 +2,9 @@ package Plant;
 
 import Entity.Fruit;
 import Entity.Plant;
-import Entity.Prompter;
 import Fruit.largeMorningFruit;
 import Fruit.smallMorningFruit;
+import main.Prompter;
 
 public class morningWood extends Plant {
 	public morningWood() {

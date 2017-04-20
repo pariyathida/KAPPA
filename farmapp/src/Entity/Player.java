@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import Seed.morningSeed;
+import main.main;
+import model.Item;
 
 public class Player {
 	String name;
@@ -23,6 +25,16 @@ public class Player {
 				System.out.println("Please input number");
 			}
 		} while (isNumeric(money) == false);
+	}
+	
+	public ArrayList<Item> getSeeds(){
+		ArrayList<Item> seeds = new ArrayList<Item>();
+		for (Item i : this.inventory) {
+			if (i.getType() == "seed") {
+				seeds.add(i);
+			}
+		}
+		return seeds;
 	}
 
 	public boolean useItem(int index) {
