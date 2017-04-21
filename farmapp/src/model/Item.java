@@ -8,6 +8,7 @@ public interface Item {
 	public void discard();
 	public String getType();
 	public String getName();
+	public double getPrice();
 	public int getAmount();
 	public void setAmount(int i);
 	public void addAmount(int i);

@@ -12,10 +12,12 @@ public class SeedLibrary {
 		seeds.add(new Seed("Morning Wood"));
 	}
 	
-	public Seed getPlant(String name){
+	public Seed getSeed(String name){
 		for(int i=0; i<seeds.size(); i++){
 			if(seeds.get(i).getName()== name){
-				return seeds.get(i);
+				Seed seed = seeds.get(i);
+				System.out.println(seed.getName());
+				return seed;
 			}
 		}
 		return null;

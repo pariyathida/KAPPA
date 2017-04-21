@@ -6,7 +6,9 @@ import Entity.Fruit;
 import Entity.GardenBed;
 import Entity.Plant;
 import Entity.Player;
+import Entity.Seed;
 import Entity.Shop;
+import library.SeedLibrary;
 import model.Item;
 
 
@@ -20,8 +22,7 @@ public class Prompter {
 	public Prompter() {
 		player = new Player();
 		gardenBed = new GardenBed();
-		//shop = new Shop();
-		//shop.buy(1, 1);
+		shop = new Shop();
 	}
 
 	public void Prompt() {
@@ -73,7 +74,7 @@ public class Prompter {
 			} else if (input == '5') {
 
 			} else if (input == '6') {
-
+				shop.visitShop(player);
 			} else if (input == '7') {
 				boolean checkGardenEmpty = true;
 				System.out.println("Goodnight");

@@ -8,7 +8,9 @@ public class Seed implements Item{
 	protected Plant plant;
 	int amount;
 	
-	public Seed(String name){}
+	public Seed(String name){
+		this.name = name;
+	}
 	
 	String type = "seed";
 
@@ -18,6 +20,10 @@ public class Seed implements Item{
 
 	public String getName() {
 		return name;
+	}
+	
+	public double getPrice(){
+		return price;
 	}
 
 	public int getAmount() {
