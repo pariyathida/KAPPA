@@ -2,7 +2,7 @@ package library;
 
 import java.util.ArrayList;
 
-import Entity.Seed;
+import entity.Seed;
 
 public class SeedLibrary {
 	private ArrayList<Seed> seeds = new ArrayList<Seed>();

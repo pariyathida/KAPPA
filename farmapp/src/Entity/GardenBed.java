@@ -1,7 +1,7 @@
-package Entity;
+package entity;
 
 public class GardenBed {
-	public Plant[] plantingSpot = new Plant[9];
+	private Plant[] plantingSpot = new Plant[9];
 
 	public void water(int index) {
 
@@ -22,4 +22,14 @@ public class GardenBed {
 			}
 		}
 	}
+	
+	public void plant(Plant plant, int index){
+		plantingSpot[index] = plant;
+	}
+	
+	public Plant getPlant(int index){
+		return plantingSpot[index];
+	}
+	
+	
 }

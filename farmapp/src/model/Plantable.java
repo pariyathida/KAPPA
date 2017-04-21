@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import Entity.Fruit;
+import entity.Fruit;
 
 public interface Plantable {
 	String name = "";

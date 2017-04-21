@@ -2,7 +2,7 @@ package library;
 
 import java.util.ArrayList;
 
-import Entity.Plant;
+import entity.Plant;
 
 
 public class PlantLibrary {

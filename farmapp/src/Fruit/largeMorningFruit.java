@@ -1,6 +1,6 @@
 package Fruit;
 
-import Entity.Fruit;
+import entity.Fruit;
 import model.Item;
 
 public class largeMorningFruit extends Fruit implements Item{

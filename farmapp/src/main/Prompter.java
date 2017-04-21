@@ -2,12 +2,12 @@ package main;
 
 import java.util.ArrayList;
 
-import Entity.Fruit;
-import Entity.GardenBed;
-import Entity.Plant;
-import Entity.Player;
-import Entity.Seed;
-import Entity.Shop;
+import entity.Fruit;
+import entity.GardenBed;
+import entity.Plant;
+import entity.Player;
+import entity.Seed;
+import entity.Shop;
 import library.SeedLibrary;
 import model.Item;
 
@@ -18,11 +18,13 @@ public class Prompter {
 	public static GardenBed gardenBed;
 	public static Shop shop;
 	
+	
 
 	public Prompter() {
 		player = new Player();
 		gardenBed = new GardenBed();
 		shop = new Shop();
+		
 	}
 
 	public void Prompt() {
