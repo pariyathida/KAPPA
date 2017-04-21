@@ -10,4 +10,5 @@ public interface Item {
 	public String getName();
 	public int getAmount();
 	public void setAmount(int i);
+	public void addAmount(int i);
 }

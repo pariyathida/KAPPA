@@ -36,7 +36,23 @@ public class Player {
 		}
 		return seeds;
 	}
-
+	
+	public boolean addItemToInventory(Item item, int amount){
+		boolean notAdded = true;
+		for(int i=0; i<inventory.size(); i++){
+			if(inventory.get(i).getName()==item.getName()){
+				//There is the same type of item already in the inventory
+				inventory.get(i).addAmount(amount);
+				notAdded = false;
+				return true;
+			}
+		}
+		//If the player never has this type of item
+		item.setAmount(amount);
+		inventory.add(item);
+		return true;
+	}
+	
 	public boolean useItem(int index) {
 		return true;
 	}

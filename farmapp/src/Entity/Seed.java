@@ -27,6 +27,11 @@ public class Seed implements Item{
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	
+	public void addAmount(int i) {
+		// TODO Auto-generated method stub
+		this.amount+=i;
+	}	
 
 	public void use() {
 		// TODO Auto-generated method stub
@@ -37,6 +42,8 @@ public class Seed implements Item{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 	/*public void use() {
 		String index;
