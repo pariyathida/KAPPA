@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 import java.util.ArrayList;
 
@@ -31,6 +31,7 @@ public class Plant implements Plantable {
 		this.maturity = maturity;
 		this.lifeSpan = lifeSpan;
 	}
+	
 
 	public String getState() {
 		return state;
@@ -38,6 +39,38 @@ public class Plant implements Plantable {
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public int getAge(){
+		return age;
+	}
+	
+	public int getHealth(){
+		return health;
+	}
+	
+	public int getHealthGauge(){
+		return healthGauge;
+	}
+	
+	public int getWater(){
+		return water;
+	}
+	
+	public int getWaterGauge(){
+		return waterGauge;
+	}
+	
+	public int getSprout(){
+		return sprout;
+	}
+	
+	public int getMaturity(){
+		return maturity;
+	}
+	
+	public int getLifeSpan(){
+		return lifeSpan;
 	}
 	
 	public void getInfo(){
