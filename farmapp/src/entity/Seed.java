@@ -14,7 +14,7 @@ public class Seed implements Item{
 	
 	public Seed(String name, double price){
 		this.name = name;
-		this.price = price;
+		this.setPrice(price);
 	}
 	
 	public String getType() {
@@ -56,4 +56,9 @@ public class Seed implements Item{
 	public void setPrice(double price) {
 		this.price = price;
 	}
+<<<<<<< HEAD:farmapp/src/Entity/Seed.java
+
+	
+=======
+>>>>>>> origin/master:farmapp/src/entity/Seed.java
 }
