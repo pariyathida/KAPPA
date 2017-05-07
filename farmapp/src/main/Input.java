@@ -71,17 +71,17 @@ public class Input {
 	    }
 	 
 	 public static double getDouble(String getMSG, String errorMSG) {
-	        double data;
-	        System.out.print(getMSG);
-	        try {
-	            data = scanner.nextDouble();
-	            scanner.nextLine();
-	        }
-	        catch (InputMismatchException e) {
-	            scanner.nextLine();
-	            System.out.println(errorMSG);
-	            data = getDouble(getMSG, errorMSG);
-	        }
-	        return data;
-	    }
+		 	        double data;
+		 	        System.out.print(getMSG);
+			        try {
+		 	            data = scanner.nextDouble();
+		 	            scanner.nextLine();
+		 	        }
+		 	        catch (InputMismatchException e) {
+		            scanner.nextLine();
+		            System.out.println(errorMSG);
+		            data = getDouble(getMSG, errorMSG);
+		         }
+		         return data;
+		     }
 }
