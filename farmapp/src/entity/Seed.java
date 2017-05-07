@@ -5,8 +5,8 @@ import model.Item;
 public class Seed implements Item{
 	private String name;
 	private double price;
-	int amount=0;
-	String type = "seed";
+	private int amount=0;
+	private String type = "seed";
 	
 	public Seed(String name){
 		this.name = name;

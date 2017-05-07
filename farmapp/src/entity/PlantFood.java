@@ -5,8 +5,8 @@ import model.Item;
 public class PlantFood implements Item{
 	private String name;
 	private double price;
-	int amount=0;
-	String type = "plantFood";
+	private int amount=0;
+	private String type = "plantFood";
 	
 	public PlantFood(String name, double price){
 		this.name = name;
