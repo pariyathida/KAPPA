@@ -9,17 +9,17 @@ public class SeedLibrary {
 	//Plant(name,health,water,sprout,maturity,lifeSpan)
 	
 	public SeedLibrary(){
-		seeds.add(new Seed("Morning Wood",30));
-		seeds.add(new Seed("Orange",20));
+		seeds.add(new Seed("Morning Wood",80));
+		seeds.add(new Seed("Orange",60));
 	}
 	
 	public static Seed getSeed(String name){
 		//System.out.println(seeds.size());
 		for(int i=0; i<seeds.size(); i++){
-			if(seeds.get(i).getName().equals(name)){
-				Seed seed = seeds.get(i);
+			Seed s = seeds.get(i);
+			if(s.getName().equals(name)){
 				//System.out.println(seed.getName());
-				return seed;
+				return new Seed(s.getName(),s.getPrice());
 			}
 		}
 		System.out.println("cannot get seed from library");

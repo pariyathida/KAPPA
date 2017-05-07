@@ -27,6 +27,8 @@ public class Shop {
 				showItemList();
 			}else if(input==2){
 				buyItem(player);
+			}else if(input==3){
+				player.sellItem();
 			}
 		}
 	}
@@ -37,15 +39,9 @@ public class Shop {
 		}
 
 	}
-
-	
-	public void sell(int index, int amount){
-		
-	}
 	
 	public boolean buyItem(Player player){
 		showItemList();
-		System.out.println();
 		int index = Input.getInt("Which item you want to buy?","Please enter a number");
 		Item item = itemList.get(index-1);
 		int amount = Input.getAmount("How many items do you want?", "Please enter a number", "The number can't be negative");

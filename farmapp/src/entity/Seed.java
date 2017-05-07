@@ -57,4 +57,10 @@ public class Seed implements Item{
 		this.price = price;
 	}
 
+	public boolean deductAmount(int amount) {
+		// TODO Auto-generated method stub
+		this.amount-=amount;
+		return true;
+	}
+
 }

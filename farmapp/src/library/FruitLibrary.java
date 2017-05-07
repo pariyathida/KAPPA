@@ -16,8 +16,9 @@ public class FruitLibrary {
 	
 	public static Fruit getFruit(String name){
 		for(int i=0; i<fruits.size(); i++){
-			if(fruits.get(i).getName()== name){
-				return fruits.get(i);
+			Fruit f = fruits.get(i);
+			if(f.getName()== name){
+				return new Fruit(f.getName(),f.getPrice());
 			}
 		}
 		return null;

@@ -48,4 +48,10 @@ public class PlantFood implements Item{
 		}
 		return false;
 	}
+	
+	public boolean deductAmount(int amount) {
+		// TODO Auto-generated method stub
+		this.amount-=amount;
+		return true;
+	}
 }

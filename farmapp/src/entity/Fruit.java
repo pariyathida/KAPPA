@@ -6,6 +6,7 @@ public class Fruit implements Item{
 	private String name;
 	private double price;
 	private int amount=0;
+	private String type = "fruit";
 	
 	public Fruit(String name){
 		this.name = name;
@@ -44,11 +45,17 @@ public class Fruit implements Item{
 
 	public String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return type;
 	}
 
 	public boolean setAmount(int i) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public boolean deductAmount(int amount) {
+		// TODO Auto-generated method stub
+		this.amount-=amount;
+		return true;
 	}
 }
