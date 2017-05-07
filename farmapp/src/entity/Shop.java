@@ -32,10 +32,7 @@ public class Shop {
 	}
 	
 	public void showItemList(){
-		System.out.println(itemList.size());
 		for(int i=0; i<itemList.size(); i++){
-			//System.out.print("index"+i);
-//			System.out.println("size"+itemList.size());
 			System.out.println("#"+(i+1)+" "+itemList.get(i).getName()+"\t\t"+itemList.get(i).getPrice());
 		}
 
@@ -52,11 +49,14 @@ public class Shop {
 		int index = Input.getInt("Which item you want to buy?","Please enter a number");
 		Item item = itemList.get(index-1);
 		int amount = Input.getAmount("How many items do you want?", "Please enter a number", "The number can't be negative");
-		if(player.addItemToInventory(item, amount)){
+		double price = item.getPrice()*amount;
+		if(player.getMoney()>=price){
+			player.buyItem(item, amount, price);
 			System.out.println("Buying Success");
+			System.out.println(player.getName()+", you have "+player.getMoney()+"$ left.");
 			return true;
 		}else{
-			System.out.println("Buying Failed");
+			System.out.println("Buying Failed, not enough money");
 			return false;
 		}
 	}
