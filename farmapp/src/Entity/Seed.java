@@ -14,7 +14,7 @@ public class Seed implements Item{
 	
 	public Seed(String name, double price){
 		this.name = name;
-		this.price = price;
+		this.setPrice(price);
 	}
 	
 	public String getType() {
@@ -51,6 +51,10 @@ public class Seed implements Item{
 			return true;
 		}
 		return false;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	

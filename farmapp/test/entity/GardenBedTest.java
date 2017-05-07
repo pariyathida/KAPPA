@@ -16,9 +16,6 @@ public class GardenBedTest {
 	
 	}
 		
-	public void plant(Plant plant, int index){
-		plantingSpot[index] = plant;
-	}
 
 	
 	
@@ -34,12 +31,7 @@ public class GardenBedTest {
 	
 	
 	
-	
-		
-	public Plant getPlant(int index){
-			return plantingSpot[index];
-		}
-		
+
 	
 	
 	
