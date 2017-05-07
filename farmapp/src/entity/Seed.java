@@ -53,5 +53,7 @@ public class Seed implements Item{
 		return false;
 	}
 
-	
+	public void setPrice(double price) {
+		this.price = price;
+	}
 }

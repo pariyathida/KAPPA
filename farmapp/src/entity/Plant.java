@@ -19,7 +19,6 @@ public class Plant implements Plantable {
 	protected Fruit fruit = null;
 	protected boolean isFertilized = false;
 	
-	
 	public Plant(String name, int health, int water, int sprout, int maturity, int lifeSpan){
 		this.name = name;
 		this.maxHealth = health;
