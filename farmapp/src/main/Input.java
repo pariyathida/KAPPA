@@ -24,12 +24,19 @@ public class Input {
 	 public static int getIntMax(String getMSG, String errorMSG, int max) {
 	        int data;
 	        System.out.print(getMSG);
-	        data = scanner.nextInt();
-	        scanner.nextLine();
-	        if(data>max || data<0) {
-	            System.out.println(errorMSG);
-	            data = getIntMax(getMSG, errorMSG, max);
-	        }
+	        try {
+		        data = scanner.nextInt();
+		        scanner.nextLine();
+		    
+		        if(data>max || data<0) {
+		        	System.out.println(errorMSG);
+		        	data = getIntMax(getMSG, errorMSG, max);
+		        }
+	        }catch (InputMismatchException e) {
+		        scanner.nextLine();
+		        System.out.print(errorMSG);
+		        data = getInt(getMSG, errorMSG);
+		    }
 	        return data;
 	    }
 
