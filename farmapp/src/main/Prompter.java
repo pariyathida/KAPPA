@@ -87,6 +87,7 @@ public class Prompter {
 				}
 
 			} else if (input == 3) {
+				System.out.println("Select plant to water");
 				for (int i = 0; i < gardenBed.size(); i++) {
 					Plant p = gardenBed.getPlant(i);
 					if (p == null) {
@@ -96,6 +97,13 @@ public class Prompter {
 						p.getInfo();
 					}
 				}
+				int inputInteger = Input.getIntMax("","",gardenBed.size());
+				if(gardenBed.getPlant(inputInteger-1)==null){
+					System.out.println("No plant to water.");
+				}else{
+					gardenBed.getPlant(inputInteger-1).isWatered();
+				}
+				
 
 			} else if (input == 4) {
 				
