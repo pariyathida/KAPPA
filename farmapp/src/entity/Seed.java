@@ -56,8 +56,5 @@ public class Seed implements Item{
 	public void setPrice(double price) {
 		this.price = price;
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> origin/master
+
 }
