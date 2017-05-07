@@ -2,30 +2,29 @@ package entity;
 
 import java.util.ArrayList;
 
-import Fruit.largeMorningFruit;
-import Fruit.smallMorningFruit;
+import library.FruitLibrary;
 import model.Plantable;
 
 public class Plant implements Plantable {
 	protected String name;
 	protected int age;
-	protected int health;
+	protected int maxHealth; //max health gauge
 	protected int healthGauge;
-	protected int water;
+	protected int maxWater;  //max water gauge
 	protected int waterGauge;
-	protected int sprout;
-	protected int maturity;
-	protected int lifeSpan;
+	protected int sprout;	//cannot produce fruit yet
+	protected int maturity; //produce fruit
+	protected int lifeSpan; //exceed means dead
 	protected String state = "seedling";
-	protected ArrayList<Fruit> product = new ArrayList<Fruit>();
+	protected Fruit fruit = null;
 	protected boolean isFertilized = false;
 	
 	
 	public Plant(String name, int health, int water, int sprout, int maturity, int lifeSpan){
 		this.name = name;
-		this.health = health;
+		this.maxHealth = health;
 		this.healthGauge = health;
-		this.water = water;
+		this.maxWater = water;
 		this.waterGauge = water;
 		this.sprout = sprout;
 		this.maturity = maturity;
@@ -46,7 +45,7 @@ public class Plant implements Plantable {
 	}
 	
 	public int getHealth(){
-		return health;
+		return maxHealth;
 	}
 	
 	public int getHealthGauge(){
@@ -54,7 +53,7 @@ public class Plant implements Plantable {
 	}
 	
 	public int getWater(){
-		return water;
+		return maxWater;
 	}
 	
 	public int getWaterGauge(){
@@ -73,6 +72,31 @@ public class Plant implements Plantable {
 		return lifeSpan;
 	}
 	
+	private void increaseWaterGauge(){
+		if(waterGauge<maxWater){
+			waterGauge++;
+		}
+	}
+	private void decreaseWaterGauge(){
+		if(waterGauge>0){
+			waterGauge--;
+		}
+	}
+	private void increaseHealthGauge(){
+		if(healthGauge<maxHealth){
+			healthGauge++;
+		}
+	}
+	private void decreaseHealthGauge(){
+		if(healthGauge>0){
+			healthGauge--;
+		}
+	}
+	
+	public void isWatered(){
+		increaseWaterGauge();
+	}
+	
 	public void getInfo(){
 		System.out.print("\tAge : " + this.state + " ("
 				+ this.age + "/" + this.lifeSpan + " Days)");
@@ -82,30 +106,26 @@ public class Plant implements Plantable {
 			System.out.print("<3 ");
 		}
 		System.out.println("(" + this.healthGauge + "/"
-				+ this.health + ")");
+				+ this.maxHealth + ")");
 		System.out.print("\tWater : ");
 		for (int j = 0; j < this.waterGauge; j++) {
 			System.out.print("<3 ");
 		}
 		System.out.println("(" + this.waterGauge + "/"
-				+ this.water + ")");
+				+ this.maxWater + ")");
 		System.out.print("\tFruit :");
-		if (this.product.isEmpty()) {
+		if (this.fruit == null) {
 			System.out.println("empty");
 		} else {
-			for (Fruit f : this.product) {
-				System.out.print(" " + f.amount + " " + f.name);
-			}
+				System.out.print(" " + fruit.getAmount() + " " + fruit.getName());
 		}
 		System.out.println();
 	}
 
 	public void increaseAge() {
 		age++;
-		if (isFertilized) {
-			sprout--;
-			maturity--;
-		}
+
+		//update the state of plant
 		if (age > sprout) {
 			state = "sprout";
 		}
@@ -116,54 +136,47 @@ public class Plant implements Plantable {
 			state = "dead";
 			System.out.println("Oh no! Your " + name + " has rot.");
 		}
-		if (waterGauge > 0) {
-			waterGauge--;
+		
+		//produce fruits
+		//only mature state can produce fruit
+		if (state.equals("mature")){ 
+			int numberOfFruit=0;
+			if(fruit==null){
+				fruit = FruitLibrary.getFruit(name);
+				numberOfFruit++;
+			}else{
+				if(healthGauge == maxHealth){
+					numberOfFruit++;
+				}
+				if(waterGauge == maxWater){
+					numberOfFruit++;
+				}
+				if(isFertilized){
+					numberOfFruit++;
+				}
+			}
+			fruit.addAmount(numberOfFruit);
+			System.out.println("Yay! Your " + name + " has produced " + numberOfFruit +" fruit(s).");
+			
 		}
+		
+		//update water and health gauge
+		if(waterGauge == maxWater){
+			increaseHealthGauge();
+		}
+		decreaseWaterGauge();
 		if (waterGauge == 0) {
-			healthGauge--;
+			decreaseHealthGauge();
 		}
+		
+		//if health gauge is 0, plant is dead and all fruits are gone.
 		if (healthGauge == 0) {
 			state = "dead";
 			System.out.println("Oh no! Your " + name + " has rot.");
-		}
-		
-		
-		/*
-		if (healthGauge == 0) {
-			product.clear();
-			System.out.println("Oh no! Your " + name + " fruit has rot");
-		} else if (state.equals("mature")) {
-			if (water == waterGauge && health == healthGauge) {
-				boolean exist = false;
-				Fruit f = new largeMorningFruit();
-				for (Fruit fr : product) {
-					if (fr.getName().equals(f.getName())) {
-						fr.setAmount(fr.getAmount() + 1);
-						exist = true;
-						break;
-					}
-				}
-				if (!exist) {
-					f.setAmount(1);
-					product.add(f);
-				}
-				System.out.println("Yay! Your " + name + " has produced " + f.getName());
-			} else {
-				boolean exist = false;
-				Fruit f = new smallMorningFruit();
-				for (Fruit fr : product) {
-					if (fr.getName().equals(f.getName())) {
-						fr.setAmount(fr.getAmount() + 1);
-						exist = true;
-						break;
-					}
-				}
-				if (!exist) {
-					f.setAmount(1);
-					product.add(f);
-				}
-				System.out.println("Yay! Your " + name + " has produced " + f.getName());
+			if(fruit!=null){
+				fruit=null;
+				System.out.println("Oh no! Your " + name + "'s fruit has rot");
 			}
-		}*/
+		}
 	}
 }

@@ -1,24 +1,32 @@
 package entity;
 
-import model.Item;
-
 public class Fruit {
 	protected String name;
-	//String type = "fruit";
 	protected double price;
-	int amount;
-	/*public String getType() {
-		return type;
-	}*/
+	private int amount=0;
+	
+	public Fruit(String name, double price){
+		this.name = name;
+		this.price = price;
+	}
+	
 	public String getName() {
 		return name;
 	}
+	
+	public double getPrice(){
+		return price;
+	}
+	
 	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	
+	public boolean addAmount(int amount) {
+		this.amount += amount;
+		return true;
 	}
+	
 	public void use(){
 		
 	}

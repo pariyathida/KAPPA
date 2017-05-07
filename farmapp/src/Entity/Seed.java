@@ -3,17 +3,16 @@ package entity;
 import model.Item;
 
 public class Seed implements Item{
-	protected String name;
-	protected double price;
-	protected Plant plant;
-	int amount;
+	private String name;
+	private double price;
+	int amount=0;
+	String type = "seed";
 	
-	public Seed(String name){
+	public Seed(String name, double price){
 		this.name = name;
+		this.price = price;
 	}
 	
-	String type = "seed";
-
 	public String getType() {
 		return type;
 	}
@@ -30,52 +29,25 @@ public class Seed implements Item{
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public boolean setAmount(int amount) {
 		this.amount = amount;
+		return true;
 	}
 	
-	public void addAmount(int i) {
+	public boolean addAmount(int amount) {
 		// TODO Auto-generated method stub
-		this.amount+=i;
+		this.amount+=amount;
+		return true;
 	}	
 
-	public void use() {
+	public boolean use() {
 		// TODO Auto-generated method stub
-		
-	}
-
-	public void discard() {
-		// TODO Auto-generated method stub
-		
+		if(amount>0){
+			amount--;
+			return true;
+		}
+		return false;
 	}
 
 	
-
-	/*public void use() {
-		String index;
-		do {
-			System.out.println("Please select planting spot");
-			index = main.scan.next();
-			Player.isInteger(index);
-		} while (Player.isInteger(index) == false);
-		int index2 = Integer.parseInt(index);
-		index2--;
-		Prompter.gardenBed.plantingSpot[index2] = plant;
-		amount--;
-		if (amount == 0) {
-			discard();
-		}
-		System.out.println(this.name + " planted");
-	}
-
-	public void discard() {
-		int count = 0;
-		for (Item i : Prompter.player.inventory) {
-			if (i.getName().equals(this.name)) {
-				break;
-			}
-			count++;
-		}
-		Prompter.player.inventory.remove(count);
-	}*/
 }

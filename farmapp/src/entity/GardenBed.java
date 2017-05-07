@@ -1,7 +1,8 @@
 package entity;
 
 public class GardenBed {
-	private Plant[] plantingSpot = new Plant[9];
+	int size = 9;
+	private Plant[] plantingSpot = new Plant[size];
 
 	
 	
@@ -13,15 +14,26 @@ public class GardenBed {
 
 	}
 
-	public void plant(Plant plant, int index){
-		plantingSpot[index] = plant;
+	public boolean plant(Plant plant){
+		for(int i=0; i<size; i++){
+			if(plantingSpot[i]==null){
+				plantingSpot[i] = plant;
+				return true;
+			}
+		}
+		return false;
+		
 	}
 	
 	public Plant getPlant(int index){
 		return plantingSpot[index];
 	}
 	
+	public int size(){
+		return size;
+	}
 	
+	//if the plant is not dead, plant age is increased
 	public void increaseDay() {
 		for (int i = 0; i < 9; i++) {
 			if (plantingSpot[i] != null) {
@@ -34,13 +46,7 @@ public class GardenBed {
 		}
 	}
 	
-	public void plant(Plant plant, int index){
-		plantingSpot[index] = plant;
-	}
-	
-	public Plant getPlant(int index){
-		return plantingSpot[index];
-	}
+
 	
 	
 }

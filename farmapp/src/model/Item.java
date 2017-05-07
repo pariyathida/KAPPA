@@ -4,12 +4,11 @@ public interface Item {
 	int amount = 1;
 	double price = 0;
 	String type = "";
-	public void use();
-	public void discard();
+	public boolean use();
 	public String getType();
 	public String getName();
 	public double getPrice();
 	public int getAmount();
-	public void setAmount(int i);
-	public void addAmount(int i);
+	public boolean setAmount(int i);
+	public boolean addAmount(int i);
 }

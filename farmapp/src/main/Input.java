@@ -20,6 +20,18 @@ public class Input {
 		    }
 		    return data;
 	 }
+	 
+	 public static int getIntMax(String getMSG, String errorMSG, int max) {
+	        int data;
+	        System.out.print(getMSG);
+	        data = scanner.nextInt();
+	        scanner.nextLine();
+	        if(data>max || data<0) {
+	            System.out.println(errorMSG);
+	            data = getIntMax(getMSG, errorMSG, max);
+	        }
+	        return data;
+	    }
 
 	 public static int getAmount(String getMSG, String errorMSG, String errorMSGMinus) {
 	        int amount = getInt(getMSG,errorMSG);
@@ -30,6 +42,21 @@ public class Input {
 	        return amount;
 	 }
 
-
+	 public static char getChar(String getMSG, String errorMSG, char rule[]) {
+	        char data;
+	        System.out.print(getMSG);
+	        data = scanner.nextLine().charAt(0);
+	        boolean checker = false;
+	        for (char c : rule) {
+	            if(c == data) {
+	                checker = true;
+	            }
+	        }
+	        if(!checker) {
+	            System.out.println(errorMSG);
+	            data = getChar(getMSG, errorMSG, rule);
+	        }
+	        return data;
+	    }
 
 }

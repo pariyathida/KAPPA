@@ -3,28 +3,49 @@ package entity;
 import model.Item;
 
 public class PlantFood implements Item{
-	String name;
-	String type;
-	double price;
-	int amount;
+	private String name;
+	private double price;
+	int amount=0;
+	String type = "plantFood";
+	
+	public PlantFood(String name, double price){
+		this.name = name;
+		this.price = price;
+	}
+	
 	public String getType() {
 		return type;
 	}
+
 	public String getName() {
 		return name;
 	}
-	public void use(){
-		
+	
+	public double getPrice(){
+		return price;
 	}
-	public void discard(){
-		
-	}
+
 	public int getAmount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return amount;
 	}
-	public void setAmount(int i) {
+
+	public boolean setAmount(int amount) {
+		this.amount = amount;
+		return true;
+	}
+	
+	public boolean addAmount(int amount) {
 		// TODO Auto-generated method stub
-		
+		this.amount+=amount;
+		return true;
+	}	
+
+	public boolean use() {
+		// TODO Auto-generated method stub
+		if(amount>0){
+			amount--;
+			return true;
+		}
+		return false;
 	}
 }

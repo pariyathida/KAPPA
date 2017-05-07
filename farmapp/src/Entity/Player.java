@@ -3,7 +3,7 @@ package entity;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-import Seed.morningSeed;
+import library.SeedLibrary;
 import main.main;
 import model.Item;
 
@@ -37,13 +37,19 @@ public class Player {
 		return seeds;
 	}
 	
+	public void showInventory(){
+		int count = 0;
+		for (Item i : inventory) {
+			count++;
+			System.out.println("#" + count + " : "+ i.getAmount() + " of " + i.getName());
+		}
+	}
+	
 	public boolean addItemToInventory(Item item, int amount){
-		boolean notAdded = true;
 		for(int i=0; i<inventory.size(); i++){
 			if(inventory.get(i).getName()==item.getName()){
 				//There is the same type of item already in the inventory
 				inventory.get(i).addAmount(amount);
-				notAdded = false;
 				return true;
 			}
 		}
@@ -59,6 +65,16 @@ public class Player {
 
 	public boolean discardItem(int index) {
 		return true;
+	}
+	
+	public boolean useSeed(String name){
+		for(int i=0; i<inventory.size(); i++){
+			if(inventory.get(i).getName()==name){
+				inventory.get(i).use();
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static boolean isNumeric(String str) {

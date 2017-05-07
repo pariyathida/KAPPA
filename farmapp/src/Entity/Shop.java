@@ -10,11 +10,10 @@ import main.main;
 import model.Item;
 
 public class Shop {
-	private ArrayList<Item> itemList = new ArrayList<Item>();
-	SeedLibrary seedLibrary = new SeedLibrary();
+	private ArrayList<Seed> itemList = new ArrayList<Seed>();
 	
 	public Shop(){
-		itemList.add(seedLibrary.getSeed("Morning Wood"));
+		itemList.add(SeedLibrary.getSeed("Morning Wood"));
 	}
 	
 	public void visitShop(Player player){
@@ -24,7 +23,7 @@ public class Shop {
 			System.out.println("(2)	Buy Item");
 			System.out.println("(3)	Sell Item");
 			System.out.println("(4)	Leave Shop");
-			input = Input.getInt("", "Wrong input, try again");
+			input = Input.getIntMax("", "Wrong input, try again",4);
 			if(input==1){
 				showItemList();
 			}else if(input==2){
@@ -35,11 +34,10 @@ public class Shop {
 	
 	public void showItemList(){
 		//System.out.println(itemList.size());
-		for(int i=0; i<itemList.size(); i++){
+		for(Item i : itemList){
 //			System.out.println("index"+i);
 //			System.out.println("size"+itemList.size());
-			Item item= itemList.get(i);
-			System.out.println(item.getName());
+			System.out.println(i.getName());
 		}
 
 	}

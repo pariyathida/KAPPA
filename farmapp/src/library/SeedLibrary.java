@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import entity.Seed;
 
 public class SeedLibrary {
-	private ArrayList<Seed> seeds = new ArrayList<Seed>();
+	private static ArrayList<Seed> seeds = new ArrayList<Seed>();
 	//Plant(name,health,water,sprout,maturity,lifeSpan)
 	
 	public SeedLibrary(){
-		seeds.add(new Seed("Morning Wood"));
+		seeds.add(new Seed("Morning Wood",30));
 	}
 	
-	public Seed getSeed(String name){
+	public static Seed getSeed(String name){
 		for(int i=0; i<seeds.size(); i++){
 			if(seeds.get(i).getName()== name){
 				Seed seed = seeds.get(i);
