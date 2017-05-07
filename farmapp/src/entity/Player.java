@@ -67,8 +67,13 @@ public class Player {
 	public boolean useSeed(String name){
 		for(int i=0; i<inventory.size(); i++){
 			if(inventory.get(i).getName()==name){
-				inventory.get(i).use();
-				return true;
+				if(inventory.get(i).getAmount()>0){
+					inventory.get(i).use();
+					if(inventory.get(i).getAmount()==0){
+						inventory.remove(i);
+					}
+					return true;
+				}
 			}
 		}
 		return false;
