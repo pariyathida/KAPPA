@@ -1,8 +1,10 @@
 package entity;
 
-public class Fruit {
-	protected String name;
-	protected double price;
+import model.Item;
+
+public class Fruit implements Item{
+	private String name;
+	private double price;
 	private int amount=0;
 	
 	public Fruit(String name){
@@ -31,10 +33,22 @@ public class Fruit {
 		return true;
 	}
 	
-	public void use(){
-		
-	}
 	public void discard(){
 		
+	}
+
+	public boolean use() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean setAmount(int i) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

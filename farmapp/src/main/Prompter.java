@@ -19,8 +19,6 @@ public class Prompter {
 	public static Player player;
 	public static GardenBed gardenBed;
 	public static Shop shop;
-	
-	
 
 	public Prompter() {
 		new SeedLibrary();
