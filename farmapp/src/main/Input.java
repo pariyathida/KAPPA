@@ -8,7 +8,7 @@ public class Input {
 
 	 public static int getInt(String getMSG, String errorMSG) {
 		    int data;
-		    System.out.print(getMSG);
+		    System.out.println(getMSG);
 		    try {
 		        data = scanner.nextInt();
 		        scanner.nextLine();
