@@ -23,6 +23,7 @@ public class Player {
 	public double getMoney(){
 		return money;
 	}
+
 	
 	public ArrayList<Item> getSeeds(){
 		ArrayList<Item> seeds = new ArrayList<Item>();
@@ -40,6 +41,12 @@ public class Player {
 			count++;
 			System.out.println("#" + count + " : "+ i.getAmount() + " of " + i.getName()+" "+i.getType());
 		}
+	}
+	
+	public boolean buyItem(Item item, int amount,double price){
+		addItemToInventory(item,amount);
+		money-=price;
+		return true;
 	}
 	
 	public boolean addItemToInventory(Item item, int amount){
