@@ -45,7 +45,7 @@ public class TestSeed {
 	@Test
 	public void getPrice(){
 		Seed seed = new Seed("");
-		seed.price = 10.0;
+		seed.setPrice(10.0);
 		assertEquals(seed.getPrice(), 10.0 );
 	}
 	

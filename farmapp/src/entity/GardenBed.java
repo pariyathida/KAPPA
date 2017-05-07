@@ -3,15 +3,13 @@ package entity;
 public class GardenBed {
 	int size = 9;
 	private Plant[] plantingSpot = new Plant[size];
-
-	
 	
 	public void water(int index) {
 
 	}
 
 	public void waterAll() {
-
+		
 	}
 
 	public boolean plant(Plant plant){
@@ -45,8 +43,4 @@ public class GardenBed {
 			}
 		}
 	}
-	
-
-	
-	
 }

@@ -56,6 +56,9 @@ public class Seed implements Item{
 	public void setPrice(double price) {
 		this.price = price;
 	}
+<<<<<<< HEAD:farmapp/src/Entity/Seed.java
 
 	
+=======
+>>>>>>> origin/master:farmapp/src/entity/Seed.java
 }
