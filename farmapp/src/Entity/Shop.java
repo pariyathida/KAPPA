@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import library.SeedLibrary;
 import main.Input;
-import main.Prompter;
-import main.main;
 import model.Item;
 
 public class Shop {
@@ -14,6 +12,7 @@ public class Shop {
 	
 	public Shop(){
 		itemList.add(SeedLibrary.getSeed("Morning Wood"));
+		itemList.add(SeedLibrary.getSeed("Orange"));
 	}
 	
 	public void visitShop(Player player){
@@ -33,11 +32,11 @@ public class Shop {
 	}
 	
 	public void showItemList(){
-		//System.out.println(itemList.size());
-		for(Item i : itemList){
-//			System.out.println("index"+i);
+		System.out.println(itemList.size());
+		for(int i=0; i<itemList.size(); i++){
+			//System.out.print("index"+i);
 //			System.out.println("size"+itemList.size());
-			System.out.println(i.getName());
+			System.out.println("#"+(i+1)+" "+itemList.get(i).getName()+"\t\t"+itemList.get(i).getPrice());
 		}
 
 	}

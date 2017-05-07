@@ -8,6 +8,7 @@ import entity.Plant;
 import entity.Player;
 import entity.Seed;
 import entity.Shop;
+import library.FruitLibrary;
 import library.PlantLibrary;
 import library.SeedLibrary;
 import model.Item;
@@ -22,10 +23,12 @@ public class Prompter {
 	
 
 	public Prompter() {
+		new SeedLibrary();
+		new PlantLibrary();
+		new FruitLibrary();
 		player = new Player();
 		gardenBed = new GardenBed();
 		shop = new Shop();
-		
 	}
 
 	public void Prompt() {
@@ -72,7 +75,7 @@ public class Prompter {
 					}
 					int inputInteger = Input.getIntMax("","",seeds.size());
 					//plant into garden bed
-					String seedName = seeds.get(inputInteger).getName();
+					String seedName = seeds.get(inputInteger-1).getName();
 					Plant p = PlantLibrary.getPlant(seedName);
 					if(gardenBed.plant(p)){
 						System.out.println("Planting Success!");

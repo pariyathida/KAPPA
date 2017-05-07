@@ -10,16 +10,19 @@ public class SeedLibrary {
 	
 	public SeedLibrary(){
 		seeds.add(new Seed("Morning Wood",30));
+		seeds.add(new Seed("Orange",20));
 	}
 	
 	public static Seed getSeed(String name){
+		//System.out.println(seeds.size());
 		for(int i=0; i<seeds.size(); i++){
-			if(seeds.get(i).getName()== name){
+			if(seeds.get(i).getName().equals(name)){
 				Seed seed = seeds.get(i);
-				System.out.println(seed.getName());
+				//System.out.println(seed.getName());
 				return seed;
 			}
 		}
+		System.out.println("cannot get seed from library");
 		return null;
 	}
 }

@@ -8,6 +8,10 @@ public class Seed implements Item{
 	int amount=0;
 	String type = "seed";
 	
+	public Seed(String name){
+		this.name = name;
+	}
+	
 	public Seed(String name, double price){
 		this.name = name;
 		this.price = price;

@@ -5,6 +5,10 @@ public class Fruit {
 	protected double price;
 	private int amount=0;
 	
+	public Fruit(String name){
+		this.name = name;
+	}
+	
 	public Fruit(String name, double price){
 		this.name = name;
 		this.price = price;

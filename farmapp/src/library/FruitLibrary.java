@@ -11,6 +11,7 @@ public class FruitLibrary {
 	
 	public FruitLibrary(){
 		fruits.add(new Fruit("Morning Wood",50));
+		fruits.add(new Fruit("Orange",30));
 	}
 	
 	public static Fruit getFruit(String name){
