@@ -178,4 +178,14 @@ public class Plant implements Plantable {
 			}
 		}
 	}
+	
+	public Fruit isHarvested(){
+		if(fruit!=null){
+			Fruit f = fruit;
+			fruit = null;
+			return f;
+		}else{
+			return null;
+		}
+	}
 }

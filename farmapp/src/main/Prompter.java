@@ -104,7 +104,7 @@ public class Prompter {
 				
 
 			} else if (input == 4) {
-				
+				player.harvestPlant(gardenBed);
 			} else if (input == 5) {
 				player.showInventory();
 			} else if (input == 6) {

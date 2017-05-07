@@ -59,4 +59,29 @@ public class Input {
 	        return data;
 	    }
 
+	 public static String getString(String getMSG, String blankMSG) {
+	        String data;
+	        System.out.print(getMSG);
+	        data = scanner.nextLine();
+	        if(data.equals("")) {
+	            System.out.println(blankMSG);
+	            data = getString(getMSG,blankMSG);
+	        }
+	        return data;
+	    }
+	 
+	 public static double getDouble(String getMSG, String errorMSG) {
+		 	        double data;
+		 	        System.out.print(getMSG);
+			        try {
+		 	            data = scanner.nextDouble();
+		 	            scanner.nextLine();
+		 	        }
+		 	        catch (InputMismatchException e) {
+		            scanner.nextLine();
+		            System.out.println(errorMSG);
+		            data = getDouble(getMSG, errorMSG);
+		         }
+		         return data;
+		     }
 }
