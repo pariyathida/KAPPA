@@ -12,7 +12,8 @@ public class TestPlantLibrary {
 	public void testGetPlant(){
 		Plant plant = new Plant("Morning Wood",3,2,1,2,5);
 		PlantLibrary plantLibrary = new PlantLibrary();
-		assertEquals(plant,plantLibrary.getPlant("Morning Wood"));
+		assertEquals(plant.getName(),plantLibrary.getPlant("Morning Wood").getName());
+		assertEquals(null,plantLibrary.getPlant("Weed"));
 	}
 
 }

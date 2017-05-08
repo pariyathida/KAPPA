@@ -11,6 +11,7 @@ public class TestSeedLibrary {
 	public void testGetSeed(){
 		Seed seed = new Seed("Morning Wood");
 		SeedLibrary seedLibrary = new SeedLibrary();
-		assertEquals(seed,seedLibrary.getSeed("Morning Wood"));
+		assertEquals(seed.getName(),seedLibrary.getSeed("Morning Wood").getName());
+		assertEquals(null,seedLibrary.getSeed("Weed"));
 	}
 }

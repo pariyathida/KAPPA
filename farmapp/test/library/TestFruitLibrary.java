@@ -13,6 +13,8 @@ public class TestFruitLibrary {
 		
 		Fruit fruit = new Fruit("Orange",30);
 		FruitLibrary fruitLibrary = new FruitLibrary();
-		assertEquals(fruit,fruitLibrary.getFruit("Orange"));
+		assertEquals(fruit.getName(),fruitLibrary.getFruit("Orange").getName());
+		assertEquals(null,fruitLibrary.getFruit("Weed"));
 	}
 }
+
