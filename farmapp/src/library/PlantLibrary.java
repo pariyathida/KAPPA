@@ -16,8 +16,9 @@ public class PlantLibrary {
 	
 	public static Plant getPlant(String name){
 		for(int i=0; i<plants.size(); i++){
-			if(plants.get(i).getName()== name){
-				return plants.get(i);
+			Plant p = plants.get(i);
+			if(p.getName()== name){
+				return new Plant(p.getName(),p.getHealth(),p.getWater(),p.getSprout(),p.getMaturity(),p.getLifeSpan());
 			}
 		}
 		return null;

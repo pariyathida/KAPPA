@@ -29,7 +29,6 @@ public class Plant implements Plantable {
 		this.maturity = maturity;
 		this.lifeSpan = lifeSpan;
 	}
-	
 
 	public String getState() {
 		return state;
@@ -71,6 +70,14 @@ public class Plant implements Plantable {
 		return lifeSpan;
 	}
 	
+	public void setFruit(Fruit fruit) {
+		this.fruit = fruit;
+	}
+	
+	public Fruit getFruit() {
+		return fruit;
+	}
+	
 	private void increaseWaterGauge(){
 		if(waterGauge<maxWater){
 			waterGauge++;
@@ -96,7 +103,7 @@ public class Plant implements Plantable {
 		increaseWaterGauge();
 	}
 	
-	public void getInfo(){
+	public void getInfo(){		
 		System.out.print("\tAge : " + this.state + " ("
 				+ this.age + "/" + this.lifeSpan + " Days)");
 		System.out.println();
@@ -139,24 +146,21 @@ public class Plant implements Plantable {
 		//produce fruits
 		//only mature state can produce fruit
 		if (state.equals("mature")){ 
-			int numberOfFruit=0;
+			int numberOfFruit=1;
 			if(fruit==null){
 				fruit = FruitLibrary.getFruit(name);
+			}	
+			if(healthGauge == maxHealth){
 				numberOfFruit++;
-			}else{
-				if(healthGauge == maxHealth){
-					numberOfFruit++;
-				}
-				if(waterGauge == maxWater){
-					numberOfFruit++;
-				}
-				if(isFertilized){
-					numberOfFruit++;
-				}
+			}
+			if(waterGauge == maxWater){
+				numberOfFruit++;
+			}
+			if(isFertilized){
+				numberOfFruit++;
 			}
 			fruit.addAmount(numberOfFruit);
 			System.out.println("Yay! Your " + name + " has produced " + numberOfFruit +" fruit(s).");
-			
 		}
 		
 		//update water and health gauge

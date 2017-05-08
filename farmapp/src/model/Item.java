@@ -11,4 +11,5 @@ public interface Item {
 	public int getAmount();
 	public boolean setAmount(int i);
 	public boolean addAmount(int i);
+	public boolean deductAmount(int i);
 }

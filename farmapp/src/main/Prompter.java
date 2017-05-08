@@ -71,7 +71,7 @@ public class Prompter {
 						count++;
 						System.out.println("#" + count + " : "+ i.getAmount() + " of " + i.getName());
 					}
-					int inputInteger = Input.getIntMax("","",seeds.size());
+					int inputInteger = Input.getIntMax("","Please select a seed to plant",seeds.size());
 					//plant into garden bed
 					String seedName = seeds.get(inputInteger-1).getName();
 					Plant p = PlantLibrary.getPlant(seedName);
@@ -96,10 +96,13 @@ public class Prompter {
 					}
 				}
 				int inputInteger = Input.getIntMax("","",gardenBed.size());
-				if(gardenBed.getPlant(inputInteger-1)==null){
+				Plant plant = gardenBed.getPlant(inputInteger-1);
+				if(plant==null){
 					System.out.println("No plant to water.");
 				}else{
-					gardenBed.getPlant(inputInteger-1).isWatered();
+					plant.isWatered();
+					System.out.println("#" + inputInteger + " : " + plant.getName() + " tree");
+					plant.getInfo();
 				}
 				
 

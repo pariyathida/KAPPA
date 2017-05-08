@@ -16,6 +16,11 @@ public class Player {
 		money = Input.getDouble("", "Please input number");
 	}
 	
+	public Player(String name,double money){
+		this.name = name;
+		this.money = money;
+	}
+	
 	public String getName(){
 		return name;
 	}
@@ -24,6 +29,29 @@ public class Player {
 		return money;
 	}
 
+	public ArrayList<Item> getInventory() {
+		return inventory;
+	}
+	
+	public boolean sellItem(){
+		if(inventory.size()==0){
+			System.out.println("You have no item to sell.");
+		}else{
+			showInventory();
+			int index = Input.getInt("Which item you want to sell?","Please enter a number");
+			Item item = inventory.get(index-1);
+			int amount = Input.getIntMax("How many item you want to sell\n", "that number is not available, try again.", item.getAmount());
+			item.deductAmount(amount);
+			double price = (item.getPrice()*amount);
+			money+=price;
+			System.out.println("You have earned "+price+"$.");
+			System.out.println("Now you have "+money+"$.");
+			if(item.getAmount()==0){
+				inventory.remove(index-1);
+			}
+		}
+		return true;
+	}
 	
 	public ArrayList<Item> getSeeds(){
 		ArrayList<Item> seeds = new ArrayList<Item>();
@@ -36,10 +64,14 @@ public class Player {
 	}
 	
 	public void showInventory(){
+		if(inventory.size()==0){
+			System.out.println("Your inventory is empty.");
+		}else{
 		int count = 0;
-		for (Item i : inventory) {
-			count++;
-			System.out.println("#" + count + " : "+ i.getAmount() + " of " + i.getName()+" "+i.getType());
+			for (Item i : inventory) {
+				count++;
+				System.out.println("#" + count + " : "+ i.getAmount() + " of " + i.getName()+" "+i.getType());
+			}
 		}
 	}
 	
@@ -51,7 +83,7 @@ public class Player {
 	
 	public boolean addItemToInventory(Item item, int amount){
 		for(int i=0; i<inventory.size(); i++){
-			if(inventory.get(i).getName()==item.getName()){
+			if(inventory.get(i).getName()==item.getName() && inventory.get(i).getType()==item.getType()){
 				//There is the same type of item already in the inventory
 				inventory.get(i).addAmount(amount);
 				return true;
@@ -87,13 +119,19 @@ public class Player {
 	}
 	
 	public boolean harvestPlant(GardenBed gardenBed){
+		boolean harvestSomething = false;
 		for(int i=0; i<gardenBed.size(); i++){
 			if(gardenBed.getPlant(i)!=null){
 				Fruit f = gardenBed.getPlant(i).isHarvested();
 				if(f!=null){
 					addItemToInventory(f,f.getAmount());
+					System.out.println("You got "+f.getAmount()+" of "+f.getName());
+					harvestSomething = true;
 				}
 			}
+		}
+		if(!harvestSomething){
+			System.out.println("You have nothing to harvest.");
 		}
 		return true;
 	}
