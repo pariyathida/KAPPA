@@ -16,6 +16,11 @@ public class Player {
 		money = Input.getDouble("", "Please input number");
 	}
 	
+	public Player(String name,double money){
+		this.name = name;
+		this.money = money;
+	}
+	
 	public String getName(){
 		return name;
 	}
@@ -24,6 +29,10 @@ public class Player {
 		return money;
 	}
 
+	public ArrayList<Item> getInventory() {
+		return inventory;
+	}
+	
 	public boolean sellItem(){
 		if(inventory.size()==0){
 			System.out.println("You have no item to sell.");

@@ -59,6 +59,5 @@ public class Shop {
 	
 	public void reStock(){
 		itemList.clear();
-		
 	}
 }

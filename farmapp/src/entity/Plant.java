@@ -29,7 +29,6 @@ public class Plant implements Plantable {
 		this.maturity = maturity;
 		this.lifeSpan = lifeSpan;
 	}
-	
 
 	public String getState() {
 		return state;
@@ -69,6 +68,14 @@ public class Plant implements Plantable {
 	
 	public int getLifeSpan(){
 		return lifeSpan;
+	}
+	
+	public void setFruit(Fruit fruit) {
+		this.fruit = fruit;
+	}
+	
+	public Fruit getFruit() {
+		return fruit;
 	}
 	
 	private void increaseWaterGauge(){
